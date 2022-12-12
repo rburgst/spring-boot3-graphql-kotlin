@@ -1,0 +1,26 @@
+type Club {
+    id: ID!
+    clubName: String!
+
+    athletes: [Athlete!]!
+}
+
+type Athlete {
+    id: ID!
+    club: Club
+    firstName: String!
+    lastName: String!
+    gender: Gender!
+}
+
+enum Gender {
+    FEMALE, MALE
+}
+
+type Query {
+    allClubs: [Club!]!
+    allAthletes: [Athlete!]!
+
+    club(id: ID!): Club
+    athlete(id: ID!): Athlete
+}
